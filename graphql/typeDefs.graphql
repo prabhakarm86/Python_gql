@@ -2,23 +2,42 @@ schema {
     query: Query
 }
 
-type employee {
+  type Query {
+    emps: [employee]
+    emp(id:ID!): employee
+
+  }
+
+  type employee {
     id: ID!,
     email:String!,
     username:String,
     first_name:String,
     last_name:String,
     password_hash:String,
-    salary:String,
-    leaves:String,
+    salary:Int,
+    leaves:Int,
     is_admin:Boolean,
-    department_id:String,
-    role_id:String
+    department_id:Int,
+    role_id:Int
   }
 
-  type Query {
-    emps: [employee]
-    emp(id:ID!): employee
+input userData {
+    email:String!,
+    username:String,
+    first_name:String,
+    last_name:String,
+    password_hash:String,
+    salary:Int,
+    leaves:Int,
+    is_admin:Boolean,
+    department_id:Int,
+    role_id:Int
   }
 
+  type Mutation {
+    createEmployee (input: userData!): employee
+  }
+
+  
  

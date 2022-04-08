@@ -11,12 +11,16 @@ export class API extends RESTDataSource {
     return response.Employees
   }
 
-
   async getemp(id){
     const api='getemp/'+id
     const response = await this.get(api);
     return response.Employee 
   }
 
-
+  async createEmployee(input){
+    console.log(input)
+    const response = await this.post('addemp', new Object({ ...input }));
+    console.log(response)
+    return response.employee
+  }
 };

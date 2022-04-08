@@ -14,5 +14,5 @@ const server = new ApolloServer({
 });
 
 server.listen(3000).then(() => {
-  console.log(`Server ready at port 3000`)
+  console.log(`Server is running at port 3000`)
 });
